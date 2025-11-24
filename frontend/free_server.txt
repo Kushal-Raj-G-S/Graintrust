@@ -1,0 +1,4 @@
+netstat -ano | findstr :3005
+
+PS E:\BMSIT\Hackathon projects\BioBloom\blockchain\graintrust-2.0> Stop-Process -Id 28320
+>> Stop-Process -Id 20208
