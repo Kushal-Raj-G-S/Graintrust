@@ -2,11 +2,11 @@
 
 > **Blockchain-Powered Agricultural Supply Chain Transparency Platform**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.3-black?logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Hyperledger Fabric](https://img.shields.io/badge/Hyperledger-Fabric-2.5-2F3134?logo=hyperledger)](https://www.hyperledger.org/use/fabric)
-[![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase)](https://supabase.com/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Next.js](https://img.shields.io/static/v1?label=Next.js&message=15.3&color=000000&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/static/v1?label=TypeScript&message=5.0&color=3178C6&logo=typescript)](https://www.typescriptlang.org/)
+[![Hyperledger Fabric](https://img.shields.io/static/v1?label=Hyperledger%20Fabric&message=2.5&color=2F3134&logo=hyperledger)](https://www.hyperledger.org/use/fabric)
+[![Supabase](https://img.shields.io/static/v1?label=Supabase&message=Database&color=3ECF8E&logo=supabase)](https://supabase.com/)
+[![License](https://img.shields.io/static/v1?label=License&message=MIT&color=44cc11)](LICENSE)
 
 GrainTrust is a comprehensive blockchain-based platform designed to ensure transparency, authenticity, and traceability across the agricultural supply chain. From farm to fork, every step is verified, recorded, and accessible through AI-powered image verification, QR code certificates, and real-time market data.
 
