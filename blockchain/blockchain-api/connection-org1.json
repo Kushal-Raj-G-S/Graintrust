@@ -1,0 +1,32 @@
+{
+  "name": "test-network-org1",
+  "version": "1.0.0",
+  "client": {
+    "organization": "FarmerOrg",
+    "connection": {
+      "timeout": {
+        "peer": {"endorser": "300"},
+        "orderer": "300"
+      }
+    }
+  },
+  "organizations": {
+    "FarmerOrg": {
+      "mspid": "FarmerOrgMSP",
+      "peers": ["peer0.farmer.graintrust.com"],
+      "certificateAuthorities": []
+    }
+  },
+  "peers": {
+    "peer0.farmer.graintrust.com": {
+      "url": "grpcs://localhost:7051",
+      "tlsCACerts": {
+        "path": "/home/kush/graintrust-2.0/fabric-samples/test-network/organizations/peerOrganizations/farmer.graintrust.com/tlsca/tlsca.farmer.graintrust.com-cert.pem"
+      },
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.farmer.graintrust.com",
+        "hostnameOverride": "peer0.farmer.graintrust.com"
+      }
+    }
+  }
+}

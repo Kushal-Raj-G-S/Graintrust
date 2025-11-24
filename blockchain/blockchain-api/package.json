@@ -1,0 +1,22 @@
+{
+  "name": "graintrust-blockchain-api",
+  "version": "1.0.0",
+  "description": "API bridge between Supabase and Hyperledger Fabric",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "express": "^4.18.2",
+    "fabric-network": "^2.2.19",
+    "fabric-ca-client": "^2.2.19",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
