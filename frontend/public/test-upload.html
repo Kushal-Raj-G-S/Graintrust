@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Real Image Upload to Supabase</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .upload-area { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; }
+        .upload-area:hover { border-color: #007bff; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 5px; }
+        img { max-width: 200px; max-height: 200px; border: 1px solid #ddd; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Real Image Upload to Supabase</h1>
+    <p>This will upload a real image to Supabase Storage and show you the result.</p>
+    
+    <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+        <p>📁 Click here to select a real image (JPG, PNG)</p>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    </div>
+    
+    <button onclick="uploadImage()">🚀 Upload to Supabase</button>
+    
+    <div id="result" class="result" style="display: none;">
+        <h3>✅ Upload Result:</h3>
+        <div id="resultContent"></div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            selectedFile = e.target.files[0];
+            if (selectedFile) {
+                document.querySelector('.upload-area p').textContent = 
+                    `📁 Selected: ${selectedFile.name} (${(selectedFile.size / 1024).toFixed(1)} KB)`;
+            }
+        });
+        
+        async function uploadImage() {
+            if (!selectedFile) {
+                alert('Please select an image first!');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            
+            try {
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('resultContent').innerHTML = '⏳ Uploading to Supabase...';
+                
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('resultContent').innerHTML = 
+                        \`✅ Upload successful!<br>
+                        📁 File: \${data.fileName}<br>
+                        🔗 URL: <a href="\${data.url}" target="_blank">\${data.url}</a><br>
+                        📏 Size: \${data.size} bytes<br>
+                        📝 Type: \${data.type}<br><br>
+                        🖼️ Preview:<br>
+                        <img src="\${data.url}" alt="Uploaded image"><br><br>
+                        <strong>🎉 This image is now in Supabase Storage and ready to be displayed in your admin dashboard!</strong>\`;
+                } else {
+                    const error = await response.text();
+                    document.getElementById('resultContent').innerHTML = \`❌ Upload failed: \${error}\`;
+                }
+            } catch (error) {
+                document.getElementById('resultContent').innerHTML = \`❌ Error: \${error.message}\`;
+            }
+        }
+    </script>
+</body>
+</html>
